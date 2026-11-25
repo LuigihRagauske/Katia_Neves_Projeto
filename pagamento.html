@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Pagamento — Kátia Neves Expert</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="CSS/planos.css">
+  </head>
+  <body>
+    <header class="topo">
+      <a class="marca" href="index.html"><img class="logo-img" src="logo-katia.png" alt="Kátia Neves Psicopedagoga"></a>
+      <button class="btn-sair" id="sair" type="button">Sair</button>
+    </header>
+
+    <main class="container">
+      <section class="intro">
+        <p class="eyebrow">Passo 2 de 2</p>
+        <h1>Confirme o seu plano</h1>
+        <p>O atendimento é liberado assim que o pagamento for confirmado.</p>
+      </section>
+
+      <section class="resumo">
+        <h2>Resumo do pedido</h2>
+        <dl>
+          <div><dt>Plano</dt><dd id="resNome">—</dd></div>
+          <div><dt>Perfil</dt><dd id="resPerfil">—</dd></div>
+          <div><dt>Perguntas por mês</dt><dd id="resLimite">—</dd></div>
+          <div><dt>Valor mensal</dt><dd id="resPreco">—</dd></div>
+          <div><dt>Código do pedido</dt><dd id="resPedido">—</dd></div>
+        </dl>
+
+        <p class="aviso-pagamento" id="avisoPagamento" role="status"></p>
+
+        <div class="pix" id="blocoPix">
+          <p class="pix-titulo">Pague pelo Pix</p>
+          <p class="pix-aviso">Este pagamento é destinado à conta Pix da Kátia Neves. Confira o nome do destinatário antes de confirmar.</p>
+          <div class="pix-chave">
+            <span id="chavePix">—</span>
+            <button class="btn-copiar" id="copiarPix" type="button">Copiar chave</button>
+          </div>
+          <p class="pix-instrucao">Na descrição do Pix, escreva o código do pedido: <strong id="codigoPix">—</strong></p>
+          <p class="pix-instrucao">Valor: <strong id="valorPix">—</strong></p>
+        </div>
+
+        <button class="btn-link" id="trocarPlano" type="button">Trocar de plano</button>
+      </section>
+
+      <p class="nota">Guarde o código do pedido. Ele ajuda a identificar o seu pagamento.</p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="JS/supabaseClient.js"></script>
+    <script src="JS/pagamento.js"></script>
+  </body>
+</html>

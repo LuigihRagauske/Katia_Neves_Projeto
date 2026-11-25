@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Atendimento — Kátia Neves Expert</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="CSS/ia.css">
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar" aria-label="Menu do atendimento">
+        <div class="side-topo">
+          <a class="marca" href="index.html">
+            <span class="marca-logo"><img src="icone-katia.png" alt=""></span>
+            <span>Kátia Neves <small>Expert</small></span>
+          </a>
+          <button class="icon-btn-claro" id="fecharSidebar" type="button" aria-label="Fechar menu">×</button>
+        </div>
+
+        <button class="btn-primary novo" id="novaConversa" type="button">+ Nova conversa</button>
+
+        <label class="busca">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <input id="busca" type="search" placeholder="Pesquisar conversas e temas" autocomplete="off">
+        </label>
+
+        <button class="side-item destaque" id="abrirConsulta" type="button">Marcar consulta com a Kátia</button>
+
+        <div class="side-scroll">
+          <section class="side-sec">
+            <h4>Biblioteca</h4>
+            <ul class="lista" id="biblioteca"></ul>
+          </section>
+
+          <section class="side-sec">
+            <h4>Histórico</h4>
+            <ul class="lista" id="historico"></ul>
+          </section>
+        </div>
+
+        <div class="side-rodape">
+          <div class="plano-box">
+            <div class="plano-linha">
+              <strong id="planoNome">Plano</strong>
+              <a href="planos.html?trocar=1">Mudar de plano</a>
+            </div>
+            <p class="uso" id="usoTexto"></p>
+            <div class="barra"><span id="barraUso"></span></div>
+          </div>
+
+          <div class="conta">
+            <span id="contaEmail"></span>
+            <button id="sair" type="button">Sair</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="principal">
+        <header class="topbar">
+          <button class="menu-btn" id="abrirSidebar" type="button" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="topo-info">
+            <strong>Atendimento virtual</strong>
+            <span id="topPerfil"></span>
+          </div>
+
+          <div class="topo-controles">
+            <select id="faixa" aria-label="Idade da criança">
+              <option value="4-6">4 a 6 anos</option>
+              <option value="7-9" selected>7 a 9 anos</option>
+              <option value="10-12">10 a 12 anos</option>
+            </select>
+          </div>
+        </header>
+
+        <div class="conteudo" id="conteudo">
+          <section class="vazio" id="vazio">
+            <div class="vazio-icone" aria-hidden="true">KN</div>
+            <h2>Como posso te ajudar?</h2>
+            <p>Tire dúvidas gerais sobre rotina, aprendizagem, atenção, emoções e convivência de crianças de 4 a 12 anos.</p>
+
+            <div class="chips" id="chipsVazio"></div>
+
+            <div class="cta-consulta">
+              <p>Precisa de uma avaliação individual?</p>
+              <button class="btn-outline" type="button" data-acao="consulta">Marcar consulta</button>
+            </div>
+          </section>
+
+          <div class="mensagens" id="mensagens"></div>
+        </div>
+
+        <div class="composer">
+          <form class="caixa" id="form">
+            <textarea id="pergunta" rows="1" maxlength="320" placeholder="Pergunte sobre rotina, aprendizagem, atenção ou emoções..." aria-label="Sua dúvida"></textarea>
+            <button class="enviar" id="enviar" type="submit" aria-label="Enviar">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </button>
+          </form>
+          <p class="aviso-limite" id="avisoLimite" hidden></p>
+          <p class="rodape-chat">Orientação educativa geral. Não substitui avaliação profissional. Não envie nomes ou dados de crianças.</p>
+        </div>
+      </main>
+    </div>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <div class="modal" id="modalConsulta" role="dialog" aria-modal="true" aria-labelledby="tituloConsulta" hidden>
+      <div class="modal-topo">
+        <h2 id="tituloConsulta">Marcar consulta</h2>
+        <button class="icon-btn-claro" id="fecharConsulta" type="button" aria-label="Fechar">×</button>
+      </div>
+      <p class="modal-texto">Preencha os dados abaixo. Ao enviar, o WhatsApp da Kátia abre com as suas informações prontas.</p>
+
+      <form class="form-consulta" id="formConsulta">
+        <label class="campo">Seu nome
+          <input id="nomeResp" type="text" required autocomplete="name">
+        </label>
+        <label class="campo">Contato (WhatsApp ou e-mail)
+          <input id="contatoResp" type="text" required>
+        </label>
+        <div class="linha-campos">
+          <label class="campo">Modalidade
+            <select id="modalidade">
+              <option value="online">Online</option>
+              <option value="presencial">Presencial</option>
+            </select>
+          </label>
+          <label class="campo">Período
+            <select id="periodo">
+              <option value="manha">Manhã</option>
+              <option value="tarde">Tarde</option>
+              <option value="noite">Noite</option>
+            </select>
+          </label>
+        </div>
+        <label class="campo">Dia de preferência
+          <input id="dataPreferida" type="date">
+        </label>
+        <label class="campo">Motivo resumido
+          <textarea id="motivo" rows="3" required></textarea>
+        </label>
+        <p class="dica">Não informe nomes de crianças nem laudos. Esses detalhes são conversados na consulta.</p>
+        <p class="status" id="consultaStatus" role="status"></p>
+        <button class="btn-primary" id="enviarConsulta" type="submit">Enviar pelo WhatsApp</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="JS/supabaseClient.js"></script>
+    <script src="JS/ia.js"></script>
+  </body>
+</html>

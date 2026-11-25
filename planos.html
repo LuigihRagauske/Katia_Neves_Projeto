@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Planos — Kátia Neves Expert</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="CSS/planos.css">
+  </head>
+  <body>
+    <header class="topo">
+      <a class="marca" href="index.html"><img class="logo-img" src="logo-katia.png" alt="Kátia Neves Psicopedagoga"></a>
+      <button class="btn-sair" id="sair" type="button">Sair</button>
+    </header>
+
+    <main class="container">
+      <section class="intro">
+        <p class="eyebrow">Passo 1 de 2</p>
+        <h1>Escolha o plano ideal para você</h1>
+        <p>Comece pelo perfil que melhor descreve você. Depois, escolha o plano e siga para o atendimento.</p>
+      </section>
+
+      <div class="abas" role="tablist" aria-label="Perfil">
+        <button class="aba on" type="button" role="tab" aria-selected="true" data-perfil="familia">Pais e responsáveis</button>
+        <button class="aba" type="button" role="tab" aria-selected="false" data-perfil="professor">Professores e educadores</button>
+      </div>
+
+      <div class="grade" id="grade"></div>
+
+      <p class="nota">Ao escolher um plano, você segue para o pagamento. O acesso ao atendimento é liberado somente depois da confirmação.</p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="JS/supabaseClient.js"></script>
+    <script src="JS/planos.js"></script>
+  </body>
+</html>
